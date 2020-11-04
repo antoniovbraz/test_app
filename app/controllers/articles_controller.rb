@@ -7,14 +7,14 @@ class ArticlesController < ApplicationController
       @articles = Article.all
     end
 
-    def def new
+    def new
       @article = Article.new
     end
 
-    def def create
-      @article = Article.new(params[:article])
+    def create
+      @article = Article.new(params.require(:article).permit(:title, :description))
       if @article.save
-        flash[:success] = "Object successfully created"
+        flash[:success] = "Article successfully created."
         redirect_to @article
       else
         flash[:error] = "Something went wrong"
