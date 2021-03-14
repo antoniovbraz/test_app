@@ -60,5 +60,4 @@ private
       redirect_to @user
     end
   end
-
 end
